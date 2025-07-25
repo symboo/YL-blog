@@ -27,3 +27,16 @@ netsh advfirewall set allprofiles state on
 pip install -r requirements.txt
 cd backend
 python app.py
+
+GitHub Pages 上傳流程筆記（txt 版）用git bash不要用cmd 還要載git
+進入專案資料夾
+cd /c/Users/user/Desktop/StreamBridge
+
+加入全部變動檔案
+git add .
+
+建立一個 commit 訊息
+git commit -m "整理靜態檔案結構，準備部署 GitHub Pages"
+
+推到 GitHub
+git push origin main
