@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YL工作室 | VALORANT精彩投稿</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/submit.css">
+    <script src="static/js/submit.js" defer></script>
+</head>
+<body>
+    <!-- 共用導航列 -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="static/images/yllogo.png" alt="YL工作室Logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="main.html">首頁<span class="exclamation">.</a></li>
+                <li><a href="about.html">關於我<span class="exclamation">.</a></li>
+                <li><a href="submit.html" class="active">投稿區<span class="exclamation">.</a></li>
+                <li><a href="discord.html">Discord<span class="exclamation">.</a></li>
+            </ul>
+        </div>
+    </nav>
+
+        <!-- 投稿表單區塊 -->
+        <section class="submission-section">
+            <div class="submission-container">
+                <!-- 表單卡片 -->
+                <article class="submission-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-plus-circle"></i> 新增投稿</h2>
+                        <div class="card-tabs">
+                            <button class="tab-btn active" data-tab="video-tab">影片投稿</button>
+                            <button class="tab-btn" data-tab="screenshot-tab">截圖投稿</button>
+                        </div>
+                    </div>
+
+                    <!-- 影片投稿表單 -->
+                    <form id="valorant-submission-form" class="submission-form active-tab" data-tab="video-tab">
+                        <!-- 遊戲情報區 -->
+                        <fieldset class="form-section">
+                            <legend><i class="fas fa-gamepad"></i> 遊戲情報</legend>
+                            
+                            <div class="form-grid">
+                                <!-- 玩家ID -->
+                                <div class="form-group">
+                                    <label for="player-id">
+                                        <i class="fas fa-id-card"></i> 你的遊戲ID
+                                    </label>
+                                    <input type="text" id="player-id" name="player-id" 
+                                           placeholder="例如：YLstudio#TW1" 
+                                           pattern="[A-Za-z0-9_]{3,16}#[A-Za-z0-9]{4}"
+                                           required>
+                                    <div class="error-message"></div>
+                                </div>
+
+                                <!-- 牌位選擇 -->
+                                <div class="form-group">
+                                    <label for="player-rank">
+                                        <i class="fas fa-trophy"></i> 當前牌位
+                                    </label>
+                                    <select id="player-rank" name="player-rank" required>
+                                        <option value="">選擇牌位</option>
+                                        <option value="iron">鐵牌</option>
+                                        <option value="bronze">銅牌</option>
+                                        <option value="silver">銀牌</option>
+                                        <option value="gold">金牌</option>
+                                        <option value="platinum">白金</option>
+                                        <option value="diamond">鑽石</option>
+                                        <option value="ascendant">超凡</option>
+                                        <option value="immortal">神話</option>
+                                        <option value="radiant">輻能戰魂</option>
+                                    </select>
+                                    <div class="error-message"></div>
+                                </div>
+
+                                <!-- 特戰角色 -->
+                                <div class="form-group full-width">
+                                    <label for="agent-used">
+                                        <i class="fas fa-user-ninja"></i> 使用角色
+                                    </label>
+                                    <select id="agent-used" name="agent-used" class="agent-select" required>
+                                        <option value="">選擇戰術核心</option>
+                                        
+                                        <!-- 決鬥者 -->
+                                        <optgroup label="⚔️ 決鬥者">
+                                            <option value="Jett">婕提 (Jett)</option>
+                                            <option value="Phoenix">菲尼克斯 (Phoenix)</option>
+                                            <option value="Raze">蕾娜 (Raze)</option>
+                                            <option value="Reyna">雷娜 (Reyna)</option>
+                                            <option value="Yoru">夜戮 (Yoru)</option>
+                                            <option value="Neon">霓虹 (Neon)</option>
+                                            <option value="Iso">伊照 (Iso)</option>
+                                        </optgroup>
+
+                                        <!-- 控場者 -->
+                                        <optgroup label="🌪️ 控場者">
+                                            <option value="Brimstone">戰神 (Brimstone)</option>
+                                            <option value="Viper">毒蛇 (Viper)</option>
+                                            <option value="Omen">歐門 (Omen)</option>
+                                            <option value="Astra">星寰 (Astra)</option>
+                                            <option value="Harbor">海神 (Harbor)</option>
+                                        </optgroup>
+
+                                        <!-- 先鋒 -->
+                                        <optgroup label="🛡️ 先鋒">
+                                            <option value="Sova">索瓦 (Sova)</option>
+                                            <option value="Breach">布雷奇 (Breach)</option>
+                                            <option value="Skye">絲凱 (Skye)</option>
+                                            <option value="KAY/O">KAY/O</option>
+                                            <option value="Fade">菲德 (Fade)</option>
+                                            <option value="Gekko">蓋可 (Gekko)</option>
+                                        </optgroup>
+
+                                        <!-- 守衛 -->
+                                        <optgroup label="🔒 守衛">
+                                            <option value="Killjoy">奇樂 (Killjoy)</option>
+                                            <option value="Cypher">瑟符 (Cypher)</option>
+                                            <option value="Sage">聖祈 (Sage)</option>
+                                            <option value="Chamber">錢博爾 (Chamber)</option>
+                                            <option value="Deadlock">死鎖 (Deadlock)</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="error-message"></div>
+                                </div>
+
+                                <!-- 地圖選擇 -->
+                                <div class="form-group">
+                                    <label for="map-select">
+                                        <i class="fas fa-map-marked-alt"></i> 比賽地圖
+                                    </label>
+                                    <select id="map-select" name="map-select" required>
+                                        <option value="">選擇戰場</option>
+                                        <option value="Ascent">遺落境地 (Ascent)</option>
+                                        <option value="Bind">雙塔迷城 (Bind)</option>
+                                        <option value="Haven">避風港 (Haven)</option>
+                                        <option value="Split">分裂 (Split)</option>
+                                        <option value="Icebox">冰盒 (Icebox)</option>
+                                        <option value="Breeze">微風島嶼 (Breeze)</option>
+                                        <option value="Fracture">深淵 (Fracture)</option>
+                                        <option value="Pearl">珍珠 (Pearl)</option>
+                                        <option value="Lotus">蓮花古城 (Lotus)</option>
+                                        <option value="Sunset">日落之城 (Sunset)</option>
+                                    </select>
+                                    <div class="error-message"></div>
+                                </div>
+
+                                <!-- 回合類型 -->
+                                <div class="form-group">
+                                    <label for="round-type">
+                                        <i class="fas fa-flag"></i> 回合類型
+                                    </label>
+                                    <select id="round-type" name="round-type">
+                                        <option value="any">任意回合</option>
+                                        <option value="pistol">手槍局</option>
+                                        <option value="eco">經濟局</option>
+                                        <option value="force">強起局</option>
+                                        <option value="full">全槍局</option>
+                                        <option value="clutch">殘局 (1vX)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- 影片資訊區 -->
+                        <fieldset class="form-section">
+                            <legend><i class="fas fa-video"></i> 影片資訊</legend>
+                            
+                            <div class="form-group">
+                                <label for="video-url">
+                                    <i class="fab fa-youtube"></i> 影片連結
+                                </label>
+                                <div class="input-with-btn">
+                                    <input type="url" id="video-url" name="video-url"
+                                           placeholder="https://youtu.be/..." 
+                                           pattern="^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+"
+                                           required>
+                                    <button type="button" class="btn preview-btn" id="preview-video">
+                                        <i class="fas fa-eye"></i> 預覽
+                                    </button>
+                                </div>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="video-title">
+                                    <i class="fas fa-heading"></i> 標題
+                                </label>
+                                <input type="text" id="video-title" name="video-title"
+                                       placeholder="例如：YL冷靜處理殘局" 
+                                       maxlength="60" required>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="video-desc">
+                                    <i class="fas fa-align-left"></i> 戰術描述
+                                </label>
+                                <textarea id="video-desc" name="video-desc" rows="4"
+                                          placeholder="描述這個精彩時刻的戰術細節、操作亮點... (限500字)"
+                                          maxlength="500"></textarea>
+                                <div class="char-counter"><span id="desc-count">0</span>/500</div>
+                            </div>
+
+                            <!-- 標籤系統 -->
+                            <div class="form-group">
+                                <label><i class="fas fa-tags"></i> 標籤</label>
+                                <div class="tag-container">
+                                    <div class="tag-options">
+                                        <input type="checkbox" id="tag-clutch" name="tags[]" value="clutch">
+                                        <label for="tag-clutch">Ace超爽</label>
+                                        
+                                        <input type="checkbox" id="tag-ace" name="tags[]" value="ace">
+                                        <label for="tag-ace">輕鬆拿捏</label>
+                                        
+                                        <input type="checkbox" id="tag-wallbang" name="tags[]" value="wallbang">
+                                        <label for="tag-wallbang">穿牆擊殺</label>
+                                        
+                                        <input type="checkbox" id="tag-defuse" name="tags[]" value="defuse">
+                                        <label for="tag-defuse">神級拆包</label>
+                                        
+                                        <input type="checkbox" id="tag-outplay" name="tags[]" value="outplay">
+                                        <label for="tag-outplay">智商壓制</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- 提交按鈕 -->
+                        <div class="form-actions">
+                            <button type="reset" class="btn reset-btn">
+                                <i class="fas fa-eraser"></i> 清除
+                            </button>
+                            <button type="submit" class="btn submit-btn">
+                                <i class="fas fa-paper-plane"></i> 發送戰報
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- 截圖投稿表單 -->
+                    <form id="screenshot-submission-form" class="submission-form" data-tab="screenshot-tab">
+                        <!-- 遊戲情報區 (與影片投稿共用相同結構) -->
+                        <fieldset class="form-section">
+                            <legend><i class="fas fa-gamepad"></i> 遊戲情報</legend>
+                            <div class="form-grid">
+                                <!-- 玩家ID、牌位、角色等字段 -->
+                                <!-- 與影片投稿表單相同 -->
+                            </div>
+                        </fieldset>
+
+                        <!-- 截圖資訊區 -->
+                        <fieldset class="form-section">
+                            <legend><i class="fas fa-camera"></i> 截圖資訊</legend>
+                            
+                            <div class="form-group">
+                                <label for="screenshot-upload">
+                                    <i class="fas fa-cloud-upload-alt"></i> 上傳截圖
+                                </label>
+                                <div class="upload-area" id="upload-area">
+                                    <input type="file" id="screenshot-upload" name="screenshot-upload" 
+                                           accept="image/*" style="display: none;">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-images"></i>
+                                        <p>點擊或拖曳檔案到此區域</p>
+                                        <small>支援 JPG, PNG (最大 5MB)</small>
+                                    </div>
+                                    <img id="image-preview" style="display: none; max-width: 100%; max-height: 300px;">
+                                </div>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="screenshot-title">
+                                    <i class="fas fa-heading"></i> 標題
+                                </label>
+                                <input type="text" id="screenshot-title" name="screenshot-title"
+                                       placeholder="例如：Jett 空中爆頭瞬間" 
+                                       maxlength="60" required>
+                                <div class="error-message"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="screenshot-desc">
+                                    <i class="fas fa-align-left"></i> 描述
+                                </label>
+                                <textarea id="screenshot-desc" name="screenshot-desc" rows="4"
+                                          placeholder="描述這個精彩時刻的細節... (限300字)"
+                                          maxlength="300"></textarea>
+                                <div class="char-counter"><span id="screenshot-desc-count">0</span>/300</div>
+                            </div>
+
+                            <!-- 標籤系統 (與影片投稿相同) -->
+                        </fieldset>
+
+                        <!-- 提交按鈕 -->
+                        <div class="form-actions">
+                            <button type="reset" class="btn reset-btn">
+                                <i class="fas fa-eraser"></i> 清除
+                            </button>
+                            <button type="submit" class="btn submit-btn">
+                                <i class="fas fa-paper-plane"></i> 發送截圖
+                            </button>
+                        </div>
+                    </form>
+                </article>
+
+                <!-- 投稿指南 -->
+                <aside class="submission-guidelines">
+                    <div class="guideline-card">
+                        <h3><i class="fas fa-book"></i> 投稿指南</h3>
+                        <ul class="guide-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>影片長度：</strong>建議15-45秒精彩片段
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>內容規範：</strong>需為本人遊戲實錄
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>品質要求：</strong>清晰可見遊戲畫面
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>版權聲明：</strong>投稿即授權社群分享
+                            </li>
+                        </ul>
+                        
+                        <div class="preview-area" id="video-preview">
+                            <div class="preview-placeholder">
+                                <i class="fas fa-play-circle"></i>
+                                <p>影片預覽將顯示在這裡</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 精選投稿展示區 -->
+        <section class="featured-submissions">
+            <div class="section-header">
+                <h2><i class="fas fa-crown"></i> 本週精選投稿</h2>
+                <div class="view-more">
+                    <a href="#" class="view-all">查看全部 <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <div class="submission-grid">
+                <!-- 範例投稿卡片1 -->
+                <article class="submission-item featured">
+                    <div class="item-badge">編輯精選</div>
+                    <div class="video-container">
+                        <iframe src="https://youtu.be/ryL1lY32nEQ?si=tvZEB3-1-SsuT_8g" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="item-meta">
+                        <div class="agent-info">
+                            <img src="https://youtu.be/iDBPLD3a8us?si=G8VNTB2Xyo0t05US" alt="Jett" class="agent-icon">
+                            <span class="agent-name">婕提</span>
+                            <span class="rank-icon immortal">神話</span>
+                        </div>
+                        <h3 class="item-title">完美</h3>
+                        <p class="item-desc">Top 17 Plays Of VALORANT Champions Tour 2024...</p>
+                        <div class="item-stats">
+                            <span><i class="fas fa-heart"></i> 328</span>
+                            <span><i class="fas fa-comment"></i> 42</span>
+                            <span><i class="fas fa-eye"></i> 1.2K</span>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">殘局大師</span>
+                            <span class="tag">智商壓制</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 範例投稿卡片2 -->
+                <article class="submission-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <div class="item-meta">
+                        <div class="agent-info">
+                            <img src="https://via.placeholder.com/40" alt="Raze" class="agent-icon">
+                            <span class="agent-name">razz</span>
+                            <span class="rank-icon radiant">輻能</span>
+                        </div>
+                        <h3 class="item-title">炸彈跳二重擊殺</h3>
+                        <p class="item-desc">利用爆炸包跨越地圖完成三殺...</p>
+                        <div class="item-stats">
+                            <span><i class="fas fa-heart"></i> 256</span>
+                            <span><i class="fas fa-comment"></i> 31</span>
+                            <span><i class="fas fa-eye"></i> 892</span>
+                        </div>
+                        <div class="item-tags">
+                            <span class="tag">爆炸藝術</span>
+                            <span class="tag">地圖控制</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="static/images/yllogo.png" alt="YL工作室Logo" class="footer-logo-img">
+                <span class="logo-text">YL STUDIO</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>快速連結</h4>
+                    <ul>
+                        <li><a href="index">首頁</a></li>
+                        <li><a href="about">關於我</a></li>
+                        <li><a href="submit">投稿區</a></li>
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1183259686632423464">Discord</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>社群媒體</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@YL-t7v"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> www0989175529www@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +886 0989175529</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 YL工作室. 保留所有權利.</p>
+        </div>
+    </footer>
+</body>
+</html>

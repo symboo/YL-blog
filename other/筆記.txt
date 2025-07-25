@@ -1,0 +1,29 @@
+#將 Token 放入 .env 文件是安全的做法。
+#使用 python-dotenv 模組來讀取 .env 中的 Token。
+#確保 .env 文件不被公開，通過 .gitignore 文件來防止它被推送到 GitHub 等地方。
+#.gitignore 是一個 普通文字檔案，只是它的名字是 .gitignore，用來告訴 Git 哪些檔案 不應該被加入版本控制（也就是不會被加入到 GitHub 等倉庫中）。
+#不希望 Token.env 被上傳到 GitHub，因為裡面有你的 Discord Bot Token（非常敏感）。
+#這時候你在 .gitignore 裡加一行：Token.env這樣 Git 就會忽略這個檔案。
+#產生的 URL https://discord.com/oauth2/authorize?client_id=1183259686632423464&permissions=2416035840&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&integration_type=0&scope=bot+applications.commands
+# 工作流程簡單來說就是這樣：機器人邀請進DC群（只要一次就好） 你改程式碼加新功能（例如新增指令） 儲存後重新執行機器人程式小y.py 他在群組裡的行為就「馬上是新的」。
+# !(文字) 指令，介紹泰嘉
+#elif command == "!泰嘉":
+# taijia_info = (
+#"泰嘉 \n"
+#"這個人真的是超級搞笑，至於長相嘛... 嘿，說實話，真的是... 比較醜醜的、老老的！😂\n"
+#"而且玩遊戲的時候，簡直是... 嗯，完全不強！\n"
+ #"但就是因為這樣，才讓他成為了大家的開心果！🎮"
+# )
+# await message.channel.send(taijia_info)
+#pip install -U discord.py
+#pip install python-dotenv
+
+@echo off
+start chrome.exe --disable-web-security --user-data-dir="C:/TempChromeSession" --allow-file-access-from-files
+
+netsh advfirewall set allprofiles state off
+netsh advfirewall set allprofiles state on
+
+pip install -r requirements.txt
+cd backend
+python app.py

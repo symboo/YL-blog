@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YL工作室 | 首頁</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="static/images/yllogo.png" alt="網站Logo" class="logo-image">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="main.html" class="active">首頁<span class="exclamation">.</span></a></li>
+                <li><a href="about.html">關於我<span class="exclamation">.</span></a></li>
+                <li><a href="submit.html">投稿區<span class="exclamation">.</span></a></li>
+                <li><a href="discord.html">Discord<span class="exclamation">.</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="home-container">
+        <!-- Hero 區 -->
+        <section class="hero-section modern-hero">
+            <div class="hero-bg" style="z-index:1;"></div>
+            <div class="hero-flex" style="position:relative;z-index:2;">
+                <div class="hero-photo-wrap" style="box-shadow:0 8px 32px rgba(0,0,0,0.38);border-radius:50%;background:rgba(24,28,36,0.92);padding:18px;">
+                    <img src="static/images/me3.jpg" class="hero-photo" alt="我們的合照" style="box-shadow:0 4px 24px #5865f2cc;">
+                </div>
+                <div class="hero-text hero-text-card" style="backdrop-filter:blur(8px);background:rgba(24,28,36,0.96);box-shadow:0 8px 32px rgba(88,101,242,0.18);">
+                    <h1 style="white-space:nowrap;">哈囉！我是于倫 <span class="emoji">✨</span></h1>
+                    <p>歡迎來到我的網站！<br>
+                    這裡收藏著我和女友的生活日常</p>
+                    <p>當然，也少不了和朋友們的遊戲時刻<span style="white-space:nowrap;">🎮<br>
+                    全都紀錄在這裡啦</span><span class="emoji">🔥</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 女友專區 -->
+        <section id="girlfriend" class="gf-section modern-section">
+            <h2>女友專區 <span style="color:#e255a3;">♥</span></h2>
+            <div class="gf-gallery modern-gallery">
+                <div class="gf-item">
+                    <img src="static/images/gf1.jpg" alt="女友1" class="gf-img">
+                    <p class="media-caption">我們的第一次約會</p>
+                </div>
+                <div class="gf-item">
+                    <img src="static/images/gf2.jpg" alt="女友2" class="gf-img">
+                    <p class="media-caption">生日驚喜</p>
+                </div>
+                <div class="gf-item">
+                    <img src="static/images/gf3.jpg" alt="女友3" class="gf-img">
+                    <p class="media-caption">週年紀念</p>
+                </div>
+                <div class="gf-item">
+                    <img src="static/images/gf4.jpg" alt="女友4" class="gf-img">
+                    <p class="media-caption">日常小確幸</p>
+                </div>
+                <div class="gf-item">
+                    <img src="static/images/gf5.png" alt="女友5" class="gf-img">
+                    <p class="media-caption">特別的日子</p>
+                </div>
+            </div>
+            <div class="gf-quotes">
+                <div class="quote-slider">
+                    <blockquote>「她不是我的遊戲隊友，但永遠是我人生的 MVP！」</blockquote>
+                    <blockquote>「雖然不是雙排，但人生這場合作賽，我們早就組好了隊。」</blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 電玩/Discord專區 -->
+        <section id="discord" class="gaming-section modern-section">
+            <h2>電玩專區</h2>
+            <div class="game-media-flex">
+                <!-- 遊戲影片區塊（本地影片） -->
+                <div class="game-video-block">
+                    <h3>遊戲影片</h3>
+                    <div class="video-gallery">
+                        <div class="video-item">
+                            <video src="static/videos/game1.mp4" controls class="game-img" poster="static/images/index.png"></video>
+                            <p class="media-caption">特戰英豪精彩時刻</p>
+                        </div>
+                        <div class="video-item">
+                            <video src="static/videos/game2.mp4" controls class="game-img" poster="static/images/jett.jpg"></video>
+                            <p class="media-caption">Jett 5殺精彩操作</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 截圖區塊 -->
+                <div class="game-screenshot-block">
+                    <h3>遊戲截圖</h3>
+                    <div class="screenshot-gallery">
+                        <div class="screenshot-item">
+                            <img src="static/images/index.png" alt="遊戲截圖1" class="game-img">
+                            <p class="media-caption">特戰英豪首頁截圖</p>
+                        </div>
+                        <div class="screenshot-item">
+                            <img src="static/images/jett.jpg" alt="遊戲截圖2" class="game-img">
+                            <p class="media-caption">Jett角色展示</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相簿/照片牆 -->
+        <section id="album" class="album-section modern-section">
+            <h2>我們的回憶</h2>
+            <div class="photo-wall">
+                <div class="album-item">
+                    <img src="static/images/one.JPG" alt="回憶1" class="album-img">
+                    <p class="media-caption">海邊出遊</p>
+                </div>
+                <div class="album-item">
+                    <img src="static/images/jett.jpg" alt="回憶2" class="album-img">
+                    <p class="media-caption">遊戲同樂</p>
+                </div>
+                <div class="album-item">
+                    <img src="static/images/yllogo.png" alt="回憶3" class="album-img">
+                    <p class="media-caption">工作室標誌</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 我的任務進度區 -->
+        <section class="mission-section modern-section">
+            <h2>我的任務進度</h2>
+            <div class="mission-grid">
+                <!-- 1. 部落格靜態網站 -->
+                <div class="mission-card">
+                    <h3>1. 部落格靜態網站</h3>
+                    <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
+                    <p>已完成，持續優化中！</p>
+                </div>
+                <!-- 2. Discord 社群 -->
+                <div class="mission-card">
+                    <h3>2. Discord 社群</h3>
+                    <div class="progress-bar"><div class="progress" style="width:80%"></div></div>
+                    <p>有Dc群歡迎進來玩</p>
+                </div>
+                <!-- 3. Call 視訊平台 -->
+                <div class="mission-card">
+                    <h3>3. Call 視訊平台</h3>
+                    <div class="progress-bar"><div class="progress" style="width:10%"></div></div>
+                    <p>目前進度 10%</p>
+                </div>
+                <!-- 4. 自學 Discord 機器人 -->
+                <div class="mission-card">
+                    <h3>4. 自學 Discord 機器人</h3>
+                    <div class="progress-bar"><div class="progress" style="width:30%"></div></div>
+                    <p>目前自學中，持續寫功能與優化中！</p>
+                </div>
+                <!-- 5. 未訂 -->
+                <div class="mission-card">
+                    <h3>5. 未訂</h3>
+                    <div class="progress-bar"><div class="progress" style="width:20%"></div></div>
+                    <p>規劃中</p>
+                </div>
+                <!-- 可以添加更多任務卡片 -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="static/images/yllogo.png" alt="YL工作室Logo" class="footer-logo-img">
+                <span class="logo-text">YL STUDIO</span>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>快速連結</h4>
+                    <ul>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="about.html">關於我</a></li>
+                        <li><a href="submit.html">投稿區</a></li>
+                        <li><a href="https://discord.com/oauth2/authorize?client_id=1183259686632423464">Discord</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>社群媒體</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@YL-t7v"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>聯絡我們</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> www0989175529www@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +886 0989175529</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 YL工作室. 保留所有權利.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 影片全屏功能
+        document.querySelectorAll('.game-img').forEach(video => {
+            video.addEventListener('dblclick', () => {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            });
+        });
+
+        // 輪播語錄功能
+        const quotes = [
+            "「她不是我的遊戲隊友，但永遠是我人生的 MVP！」",
+            "「雖然不是雙排，但人生這場合作賽，我們早就組好了隊。」"
+        ];
+
+        let currentQuote = 0;
+        const quoteContainer = document.querySelector('.gf-quotes');
+        
+        function rotateQuotes() {
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quoteContainer.innerHTML = `
+                <blockquote>${quotes[currentQuote]}</blockquote>
+            `;
+        }
+
+        // 每5秒輪播一次
+        setInterval(rotateQuotes, 5000);
+    </script>
+</body>
+</html>

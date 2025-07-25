@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>視訊通話平台</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/static/css/call.css">
+</head>
+<body>
+    <div class="container">
+        <h1>視訊通話</h1>
+        <!-- 登入區 -->
+        <div id="loginPanel" class="japanese-panel">
+            <input type="text" id="nicknameInput" placeholder="輸入您的暱稱" class="japanese-input">
+            <input type="text" id="roomInput" placeholder="輸入房間ID" value="room1" class="japanese-input">
+            <button id="joinBtn" class="japanese-button">加入房間</button>
+        </div>
+        <!-- 主功能區 -->
+        <div id="mainPanel" style="display:none;">
+            <div class="user-id">您的ID: <span id="userIdDisplay"></span>, 暱稱: <span id="nicknameDisplay"></span></div>
+            <div class="user-list" id="userList"></div>
+            <button id="leaveBtn" class="japanese-button">離開房間</button>
+            <div class="video-container" id="videoContainer">
+                <!-- 白板區塊 -->
+                <div class="whiteboard-multi-section">
+                    <h2 class="whiteboard-title">🖍️ 協作白板</h2>
+                    <div id="whiteboardList"></div>
+                </div>
+                <!-- 本地視訊 -->
+                <div class="video-wrapper" id="localVideoWrapper">
+                    <h3><span id="localName"></span>（您）</h3>
+                    <video id="localVideo" autoplay muted playsinline></video>
+                    <div class="video-ctrls">
+                        <button id="muteBtn" class="japanese-button">靜音</button>
+                        <button id="cameraBtn" class="japanese-button">關閉鏡頭</button>
+                    </div>
+                </div>
+                <!-- 遠端視訊由JS動態插入 -->
+            </div>
+            <div class="data-channel">
+                <form id="imgForm" enctype="multipart/form-data" style="margin-bottom:8px;">
+                    <input type="file" id="imgInput" accept="image/png,image/jpeg,image/gif" class="japanese-input">
+                    <button type="submit" class="japanese-button">上傳圖片</button>
+                </form>
+                <div class="message-box">
+                    <input type="text" id="messageInput" placeholder="輸入訊息..." class="japanese-input">
+                    <button id="sendBtn" class="japanese-button">傳送</button>
+                </div>
+                <div id="messages"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 圖片放大 Modal -->
+    <div class="img-modal" id="imgModal">
+        <img src="" alt="放大圖片">
+        <div class="close-btn">✕</div>
+    </div>
+    <!-- 日式裝飾元素 -->
+    <div class="japanese-decoration top-left"></div>
+    <div class="japanese-decoration top-right"></div>
+    
+    <script>
+        const SERVER_CONFIG = {
+            ip: "{{ vpn_ip }}",
+            port: "{{ port }}"
+        };
+    </script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script>
+    // 圖片放大 Modal 控制
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('imgModal');
+        const modalImg = modal.querySelector('img');
+        const closeBtn = modal.querySelector('.close-btn');
+        
+        document.body.addEventListener('click', e => {
+            if(e.target.classList.contains('chat-img')) {
+                modalImg.src = e.target.src;
+                modal.classList.add('active');
+            } else if(e.target === modal || e.target === closeBtn) {
+                modal.classList.remove('active');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

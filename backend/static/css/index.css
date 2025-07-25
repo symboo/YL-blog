@@ -1,0 +1,357 @@
+/* ========== 全局變數定義 ========== */
+:root {
+    /* 主色調 (採用特戰英豪官方配色) */
+    --primary: #d8f9ff;    /* 特戰品牌紅色 */
+    --accent: #c9e3fc;     /* 深藍色背景 */
+    --dark: #1a1a1a;       /* 深灰色背景 */
+    --light: #f8f8f8;      /* 主要文字顏色 */
+    --highlight: #ece8e1;  /* 特戰米白色 (用於強調文字) */
+    --card-bg: rgba(15, 25, 35, 0.7); /* 半透明卡片背景 */
+  
+  }
+  
+  /* ========== 基礎樣式重置 ========== */
+  * {
+    margin: 0;          /* 清除默認邊距 */
+    padding: 0;         /* 清除默認內邊距 */
+    box-sizing: border-box; /* 盒模型計算方式 */
+  }
+  
+  body {
+    font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; /* 優先使用思源黑體 */
+    background: 
+      linear-gradient(to bottom, #0f1923, #1a1a1a); /* 深色漸變背景 */
+    color: var(--light); /* 文字顏色 */
+    line-height: 1.6;    /* 行高設定 */
+    min-height: 100vh;   /* 最小高度為整個視窗 */
+    
+  }
+  
+  /* ========== 導航列樣式 ========== */
+  #navbar {
+    position:auto ;    /* 固定定位 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 漸變背景 + 毛玻璃效果 */
+    background: linear-gradient(rgb(6, 7, 7), rgba(34, 34, 34, 0.445));
+    backdrop-filter: blur(8px); /* 背景模糊效果 */
+    box-shadow: 0 2px 15px rgb(154, 209, 209);
+    z-index: 1000;      /* 確保在最上層 */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑過渡動畫 */
+  }
+  
+  /* 導航列內容容器 */
+  .nav-container {
+    display: flex;
+    justify-content: space-between; /* 左右對齊 */
+    align-items: center;  /* 垂直居中 */
+    max-width: 1400px;    /* 最大寬度限制 */
+    margin: 0 auto;       /* 水平居中 */
+    padding: 0 2rem;      /* 左右內邊距 */
+    height: 110px;         /* 固定高度 */
+  }
+  
+  /* Logo樣式 */
+  .logo a {
+    display: inline-block;
+    transition: transform 0.3s ease; /* 懸停動畫 */
+  }
+  
+  .logo-image {
+    height: 115px;       /* 固定高度 */
+    width: auto;         /* 寬度自動 */
+    transition: all 0.3s ease; /* 過渡效果 */
+  }
+  
+  .logo:hover .logo-image {
+    transform: rotate(-5deg) scale(1.05);
+    filter: drop-shadow(0 0 10px rgba(216, 249, 255, 0.5));
+  }
+  
+  /* 導航連結列表 */
+  .nav-links {
+    display: flex;
+    list-style: none;    /* 移除列表樣式 */
+    gap: 140px;          /* 連結間距 */
+  }
+  
+  /* 導航連結基本樣式 */
+  .nav-links a {
+    color: var(--light);
+    text-decoration: none; /* 移除下劃線 */
+    font-weight: 1000;    /* 中等字重 */
+    position: relative;  /* 為下劃線動畫定位 */
+    padding: 8px 0;      /* 垂直內邊距 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.6rem;  /* 字體大小 */
+  }
+  
+  /* 連結懸停效果 */
+  .nav-links a:hover {
+    color: var(--accent); /* 變為強調色 */
+  }
+  
+  
+  
+  /* 連結下劃線動畫 */
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;            /* 初始寬度為0 */
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent)); /* 漸變下劃線 */
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after {
+    width: 120%;         /* 懸停時展開寬度 */
+  }
+/* ========== 首頁內容區樣式 ========== */
+.home-container {
+    max-width: 600px;   /* 最大寬度限制 */
+    margin: 10px auto 50px; /* 上下外邊距 + 水平居中 */
+    padding: 0 20px;     /* 水平內邊距 */
+}
+
+/* 歡迎區塊佈局 */
+.welcome-section {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+    gap: 10px;           /* 元素間距 */
+    margin-bottom: 80px; /* 底部外邊距 */
+}
+
+/* 歡迎內容文字區 */
+.welcome-content {
+    flex:1 ;            /* 佔用剩餘空間 */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 左對齊 */
+    
+}
+
+.welcome-content h1 {
+    color: var(--highlight);
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+/* 快速連結網格佈局 */
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 自適應列數 */
+    gap: 20px;          /* 網格間距 */
+    margin-top: 40px;   /* 頂部外邊距 */
+}
+
+/* 連結卡片樣式 */
+.link-card {
+    background: var(--card-bg); /* 半透明背景 */
+    border-radius: 15px; /* 圓角 */
+    padding: 25px;      /* 內邊距 */
+    text-align: center; /* 文字居中 */
+    transition: all 0.3s ease; /* 過渡效果 */
+    border: 1px solid rgb(241, 241, 241); /* 邊框 */
+    text-decoration: none; /* 移除下劃線 */
+    color: var(--light); /* 文字顏色 */
+    box-shadow: 0 5px 15px rgb(255, 255, 255); /* 阴影效果 */
+}
+
+/* 卡片懸停效果 */
+.link-card:hover {
+    transform: translateY(-5px); /* 上浮效果 */
+    box-shadow: 0 10px 25px rgb(252, 252, 252); /* 陰影增強 */
+    border-color: var(--primary); /* 邊框變色 */
+}
+
+.link-icon {
+    font-size: 2.5rem;  /* 圖標大小 */
+    margin-bottom: 15px; /* 底部外邊距 */
+}
+
+.link-card h3 {
+    color: var(--highlight); /* 高亮文字 */
+    margin-bottom: 10px; /* 底部外邊距 */
+    
+}
+
+.link-card p {
+    color: rgb(255, 255, 255);
+    font-size: 0.9rem;
+}
+
+/* 歡迎圖片樣式 */
+.welcome-image {
+    flex:2;            /* 佔用剩餘空間 */
+    position: relative;
+    top: 80px;   
+    border-radius: 10px; /* 圓角 */
+    overflow: hidden;   /* 隱藏溢出部分 */
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.11); /* 陰影效果 */
+}
+
+.welcome-image img {
+    width: 100%;        /* 寬度100% */
+    height: auto;       /* 高度自動 */
+    display: block;     /* 區塊顯示 */
+    transition: transform 0.8s ease; /* 縮放動畫 */
+}
+
+/* 圖片懸停放大效果 */
+.welcome-image:hover img {
+    transform: scale(1.2); /* 輕微放大 */
+}
+
+/* 特色區塊樣式 */
+.feature-section {
+    margin: px 0;
+}
+
+.feature-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    color: var(--highlight);
+}
+
+.title-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* 特色卡片網格佈局 */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自適應列數 */
+    gap: 15px;          /* 網格間距 */
+}
+
+/* 特色卡片樣式 */
+.feature-card {
+    background: rgba(145, 92, 92, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border: 1px solid rgb(245, 244, 244);
+    box-shadow: 0 5px 15px rgb(255, 255, 255); /* 阴影效果 */
+}
+
+/* 卡片懸停效果 */
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(70, 178, 185, 0.2);
+    border-color: var(--primary);
+}
+
+.feature-card h3 {
+    color: var(--highlight);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.feature-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.feature-link::after {
+    content: '➤';
+    margin-left: 1px;
+    transition: margin-left 0.5s ease;
+}
+
+.feature-link:hover::after {
+    margin-left: 10px;
+}
+
+/* ========== 頁腳樣式 ========== */
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 10px;
+    border-top: 3px solid rgb(99, 98, 98);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 768px) {
+    /* 中等屏幕適配 */
+    .nav-links {
+        gap: 30px;      /* 減少連結間距 */
+    }
+    
+    .welcome-section {
+        flex-direction: column; /* 垂直排列 */
+    }
+    
+    .feature-section h2 {
+        font-size: 2rem;
+    }
+    
+    .logo-image {
+        height: 80px;   /* 縮小logo */
+    }
+}
+
+@media (max-width: 480px) {
+    /* 小屏幕適配 */
+    body {
+        padding-top: 90px; /* 減少頂部空間 */
+    }
+    
+    .logo-image {
+        height: 60px;   /* 進一步縮小logo */
+    }
+    
+    .nav-links {
+        gap: 15px;      /* 進一步減少間距 */
+    }
+    
+    /* 單列網格佈局 */
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome-content h1 {
+        font-size: 2rem;
+    }
+}
+
+  /* 感叹号特殊样式 */
+  .exclamation {
+    color: skyblue;  /* 使用强调色 */
+    font-size: 1em;        /* 相对字体大小 */
+  }
+
+  

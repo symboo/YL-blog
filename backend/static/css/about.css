@@ -1,0 +1,483 @@
+/* ========== 全局變數定義 ========== */
+:root {
+  /* 主色調 (採用特戰英豪官方配色) */
+  --primary: #d8f9ff;    /* 特戰品牌紅色 */
+  --accent: #c9e3fc;     /* 深藍色背景 */
+  --dark: #1a1a1a;       /* 深灰色背景 */
+  --light: #f8f8f8;      /* 主要文字顏色 */
+  --highlight: #ece8e1;  /* 特戰米白色 (用於強調文字) */
+  --card-bg: rgba(15, 25, 35, 0.7); /* 半透明卡片背景 */
+
+}
+
+/* ========== 基礎樣式重置 ========== */
+* {
+  margin: 0;          /* 清除默認邊距 */
+  padding: 0;         /* 清除默認內邊距 */
+  box-sizing: border-box; /* 盒模型計算方式 */
+}
+
+body {
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; /* 優先使用思源黑體 */
+  background: 
+    linear-gradient(to bottom, #0f1923, #1a1a1a); /* 深色漸變背景 */
+  color: var(--light); /* 文字顏色 */
+  line-height: 1.6;    /* 行高設定 */
+  min-height: 100vh;   /* 最小高度為整個視窗 */
+  
+}
+
+/* ========== 導航列樣式 ========== */
+#navbar {
+  position:auto ;    /* 固定定位 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* 漸變背景 + 毛玻璃效果 */
+  background: linear-gradient(rgb(6, 7, 7), rgba(34, 34, 34, 0.445));
+  backdrop-filter: blur(8px); /* 背景模糊效果 */
+  box-shadow: 0 2px 15px rgb(154, 209, 209);
+  z-index: 1000;      /* 確保在最上層 */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 平滑過渡動畫 */
+}
+
+/* 導航列內容容器 */
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* 左右對齊 */
+  align-items: center;  /* 垂直居中 */
+  max-width: 1400px;    /* 最大寬度限制 */
+  margin: 0 auto;       /* 水平居中 */
+  padding: 0 2rem;      /* 左右內邊距 */
+  height: 110px;         /* 固定高度 */
+}
+
+/* Logo樣式 */
+.logo a {
+  display: inline-block;
+  transition: transform 0.3s ease; /* 懸停動畫 */
+}
+
+.logo-image {
+  height: 115px;       /* 固定高度 */
+  width: auto;         /* 寬度自動 */
+  transition: all 0.3s ease; /* 過渡效果 */
+}
+
+.logo:hover .logo-image {
+  transform: rotate(-5deg) scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(216, 249, 255, 0.5));
+}
+
+/* 導航連結列表 */
+.nav-links {
+  display: flex;
+  list-style: none;    /* 移除列表樣式 */
+  gap: 140px;          /* 連結間距 */
+}
+
+/* 導航連結基本樣式 */
+.nav-links a {
+  color: var(--light);
+  text-decoration: none; /* 移除下劃線 */
+  font-weight: 1000;    /* 中等字重 */
+  position: relative;  /* 為下劃線動畫定位 */
+  padding: 8px 0;      /* 垂直內邊距 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.6rem;  /* 字體大小 */
+}
+
+/* 連結懸停效果 */
+.nav-links a:hover {
+  color: var(--accent); /* 變為強調色 */
+}
+
+
+
+/* 連結下劃線動畫 */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;            /* 初始寬度為0 */
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent)); /* 漸變下劃線 */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 120%;         /* 懸停時展開寬度 */
+}
+  /* =============================================
+     "關於我"內容區域樣式 (About Me Section) - 已調整字體
+     ============================================= */
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;         /* 允許在小屏幕換行 */
+    gap: 45px;               /* 元素間距 */
+    max-width: 1290px;       /* 內容最大寬度 */
+    margin: 0 auto;          /* 水平居中 */
+    padding: 5 20px;         /* 左右內邊距 */
+    margin-bottom: 60px;     /* 底部外邊距 */
+    
+  }
+  
+
+  /* 個人照片容器 */
+  .about-image {
+    flex: 1;                 /* 彈性佈局佔比 */
+    min-width: 300px;        /* 最小寬度限制 */
+    border-radius: var(--border-radius); /* 使用統一圓角 */
+    overflow: hidden;        /* 隱藏溢出內容 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+    transition: transform var(--transition-speed) ease; /* 懸停動畫 */
+    border: 1.5px solid rgb(255, 255, 255); /* 邊框樣式 */
+  }
+  
+  /* 圖片懸停效果 */
+  .about-image:hover {
+    transform: translateY(-5px); /* 上浮效果 */
+    box-shadow: 0 15px 35px rgb(253, 253, 253); /* 增強陰影 */
+  }
+  
+  /* 圖片樣式 */
+  .about-image img {
+    width: 100%;             /* 寬度100%填充容器 */
+    height: 100%;            /* 高度100%填充容器 */
+    object-fit: cover;       /* 保持比例填充 */
+    transition: transform 0.5s ease; /* 縮放動畫 */
+  }
+  
+  /* 圖片懸停放大效果 */
+  .about-image:hover img {
+    transform: scale(1.45);  /* 輕微放大 */
+  }
+  
+  /* 文字內容區域 */
+  .about-text {
+    flex: 1;                 /* 彈性佈局佔比 */
+    min-width: 300px;        /* 最小寬度限制 */
+    display: flex;
+    flex-direction: column;   /* 垂直排列 */
+    gap: 30px;               /* 子元素間距 */
+  }
+  
+  /* =============================================
+     卡片通用樣式 (Card Components) - 已調整字體
+     ============================================= */
+  /* 基礎卡片樣式 - 應用於所有卡片類型 */
+  .intro-card,
+  .skills-card,
+  .hobbies-card,
+  .quote-card {
+    background: var(--card-bg); /* 半透明背景 */
+    border-radius: 15px;      /* 圓角 */
+    padding: 25px;            /* 內邊距 */
+    backdrop-filter: blur(5px); /* 毛玻璃效果 */
+    border: 1px solid rgb(121, 167, 173); /* 細邊框 */
+    box-shadow: 0 5px 15px rgb(255, 255, 255); /* 陰影效果 */
+    transition: all var(--transition-speed) ease; /* 懸停動畫 */
+  }
+  
+  /* 卡片懸停效果 */
+  .intro-card:hover,
+  .skills-card:hover,
+  .hobbies-card:hover,
+  .quote-card:hover {
+    transform: translateY(-3px); /* 上浮效果 */
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2); /* 增強陰影 */
+    border-color: rgb(255, 255, 255); /* 邊框顏色變化 */
+  }
+  
+  /* 卡片標題樣式 - 已調整字體 */
+  .intro-card h2,
+  .skills-card h2,
+  .hobbies-card h2,
+  .quote-card h2 {
+    color: var(--highlight); /* 使用高亮色 */
+    margin-bottom: 15px;     /* 底部間距 */
+    font-size: 1.8rem;      /* 字體大小 */
+    position: relative;     /* 為裝飾元素定位 */
+    display: inline-block;  /* 使底線僅覆蓋文字寬度 */
+    font-weight: 1000;
+    letter-spacing: 0.3px;  /* 增加字距 */
+  }
+  
+  /* 感嘆號特殊樣式 */
+  .exclamation {
+    color: skyblue;         /* 使用強調色 */
+    font-size: 1em;         /* 相對字體大小 */
+  }
+  
+  /* =============================================
+     技能列表樣式 (Skills List) - 已調整字體
+     ============================================= */
+  .skill-list {
+    list-style: none;        /* 移除預設列表樣式 */
+  }
+  
+  /* 技能列表項 */
+  .skill-list li {
+    margin-bottom: 20px;     /* 項間距 */
+    padding-left: 30px;      /* 左側縮進 */
+    position: relative;      /* 為裝飾元素定位 */
+  }
+  
+  /* 列表項前裝飾三角符號 */
+  .skill-list li::before {
+    content: '▹';           /* 使用三角符號 */
+    position: absolute;
+    left: 0;
+    color: var(--accent);    /* 強調色 */
+    font-size: 1.5rem;       /* 較大尺寸 */
+  }
+  
+  /* 技能名稱樣式 - 已調整字體 */
+  .skill-name {
+    color: var(--highlight); /* 高亮色 */
+    font-weight: 1000;
+    display: block;         /* 獨佔一行 */
+    margin-bottom: 5px;     /* 與描述間距 */
+    font-size: 1.1rem;      /* 字體大小 */
+  }
+  
+  /* 技能描述文字 - 已調整字體 */
+  .skill-desc {
+    color: #ddd;            /* 淺灰色 */
+    line-height: 1.7;       /* 舒適行高 */
+    font-weight: 1000;
+  }
+  
+  /* =============================================
+     興趣愛好網格 (Hobbies Grid) - 已調整字體
+     ============================================= */
+  .hobby-grid {
+    display: grid;
+    /* 自適應列數，最小200px，最大1fr */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;               /* 網格間距 */
+    margin-top: 20px;        /* 頂部間距 */
+  }
+  
+  /* 單個興趣項 */
+  .hobby-item {
+    background: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    padding: 20px;           /* 內邊距 */
+    border-radius: 10px;     /* 圓角 */
+    text-align: center;      /* 文字居中 */
+    transition: all var(--transition-speed) ease; /* 懸停動畫 */
+    border: 1px solid rgb(202, 238, 247); /* 邊框 */
+  }
+  
+  /* 興趣項懸停效果 */
+  .hobby-item:hover {
+    background: rgba(106, 90, 205, 0.2); /* 背景加深 */
+    transform: translateY(-5px); /* 上浮 */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); /* 陰影 */
+  }
+  
+  /* 興趣圖標 */
+  .hobby-icon {
+    font-size: 2.5rem;       /* 大尺寸圖標 */
+    margin-bottom: 15px;     /* 底部間距 */
+    color: var(--highlight); /* 高亮色 */
+  }
+  
+  /* 興趣標題 - 已調整字體 */
+  .hobby-item h3 {
+    color: var(--highlight); /* 高亮色 */
+    margin-bottom: 10px;     /* 底部間距 */
+    font-size: 1.2rem;      /* 字體大小 */
+    font-weight: 1000;
+  }
+  
+  /* 興趣描述 - 已調整字體 */
+  .hobby-item p {
+    color: #ffffff;         /* 淺灰色 */
+    font-size: 0.95rem;     /* 較小字體 */
+    line-height: 1.6;       /* 舒適行高 */
+    font-weight: 1000;
+  }
+  
+  /* =============================================
+     名人名言區域 (Quotes Section) - 已調整字體
+     ============================================= */
+  .quotes {
+    font-style: italic;      /* 斜體強調 */
+  }
+  
+  /* 單條名言 - 已調整字體 */
+  .quotes p {
+    position: relative;      /* 為引號定位 */
+    padding-left: 25px;      /* 左側縮進 */
+    margin-bottom: 15px;     /* 底部間距 */
+    color: #ddd;            /* 淺灰色 */
+    line-height: 1.7;       /* 舒適行高 */
+    font-weight: 1000;
+  }
+  
+  /* 引號裝飾 */
+  .quotes p::before {
+    position: absolute;
+    left: 0;
+    color: var(--accent);    /* 強調色 */
+    font-size: 2rem;         /* 大尺寸 */
+    line-height: 0;          /* 調整垂直位置 */
+  }
+  
+  /* =============================================
+     頁腳樣式 (Footer) - 已調整字體
+     ============================================= */
+  .site-footer {
+    text-align: center;      /* 居中 */
+    padding: 20px 0;         /* 上下內邊距 */
+    margin-top: 10px;        /* 頂部間距 */
+    border-top: 3px solid rgb(99, 98, 98); /* 頂部邊框 */
+    color: rgba(255, 255, 255, 0.7); /* 半透明白色文字 */
+    font-weight: 1000;
+  }
+  
+  /* 頁腳連結 */
+  .site-footer a {
+    color: var(--accent);    /* 強調色 */
+    text-decoration: none;   /* 移除底線 */
+    margin-left: 10px;       /* 左側間距 */
+  }
+  
+  /* =============================================
+     ID RANK 職業樣式 - 已調整字體
+     ============================================= */
+  .gamer-tag {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+  }
+  
+  /* ID RANK 職業的影子 */
+  .gamer-tag span {
+    background: rgba(124, 118, 118, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: var(--highlight);
+    border: 1px solid var(--primary);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.452);
+    font-weight: 1000;
+  }
+  
+  /* =============================================
+     關於我標題區塊 - 已調整字體
+     ============================================= */
+  .about-section {
+    margin-top: 40px;
+    max-width: 1800px;
+    margin: 15px auto 0;
+    padding: 10px;
+    text-align: center;     /* 確保標題居中 */
+  }
+  
+  .about-section h1 {
+    display: inline-block;  /* 關鍵修改 */
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--light);
+    position: relative;
+    padding-bottom: 0px;
+    font-weight: 1000;      /* 中等字重 (原為bold) */
+    letter-spacing: 1px;   /* 增加字距 */
+  }
+  
+  .about-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;          /* 關鍵修改 */
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 2px;
+  }
+  
+  /* =============================================
+     響應式設計 (Responsive Design)
+     ============================================= */
+  
+  /* 中等屏幕適配 (平板設備) */
+  @media (max-width: 1024px) {
+    .about-content {
+      flex-direction: column; /* 垂直排列 */
+    }
+    
+    .about-image {
+      max-width: 80%;     /* 限制最大寬度 */
+      margin: 0 auto;     /* 水平居中 */
+    }
+  }
+  
+  /* 小屏幕適配 (大型手機) */
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: 30px;          /* 減少連結間距 */
+    }
+    
+    .logo-image {
+      height: 80px;       /* 縮小Logo */
+    }
+    
+    .hobby-grid {
+      grid-template-columns: 1fr 1fr; /* 兩列網格 */
+    }
+  
+    /* 調整字體大小 */
+    .about-section h1 {
+      font-size: 2.2rem;
+    }
+    
+    .video-container h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* 超小屏幕適配 (小型手機) */
+  @media (max-width: 480px) {
+    body {
+      padding-top: 70px;  /* 減少頂部間距 */
+    }
+    
+    .logo-image {
+      height: 60px;       /* 進一步縮小Logo */
+    }
+    
+    .nav-links {
+      gap: 15px;          /* 最小連結間距 */
+    }
+    
+    .hobby-grid {
+      grid-template-columns: 1fr; /* 單列網格 */
+    }
+    
+    .nav-links a {
+      font-size: 1rem;    /* 縮小字體 */
+    }
+  
+    /* 進一步調整字體大小 */
+    .about-section h1 {
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+    
+    .video-container h2 {
+      font-size: 1.5rem;
+    }
+    
+    /* 調整卡片標題 */
+    .intro-card h2,
+    .skills-card h2,
+    .hobbies-card h2,
+    .quote-card h2 {
+      font-size: 1.4rem;
+    }
+  }
+  
