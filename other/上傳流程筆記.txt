@@ -1,0 +1,97 @@
+GitHub Pages 正常上傳流程
+用git bash不要用cmd 還要載git
+
+進入專案資料夾
+cd "C:\Users\user\Desktop\YL-blog"
+
+加入全部變動檔案
+git add .
+
+建立一個 commit 訊息
+git commit -m "實作全域持續播放音樂系統"
+
+推到 GitHub
+git push origin main
+
+
+遇到殘檔解決方式
+# 1.刪除 Git 歷史（注意：會清空整個 Git 記錄）
+rm -rf .git
+
+# 2. 重新初始化 Git 專案
+git init
+
+# 3. 加入 GitHub 遠端倉庫
+git remote add origin https://github.com/symboo/YL-blog.git
+
+# 4. 加入你要的檔案（確認不要再放入太大的影片）
+git add .
+
+# 5. 提交訊息
+git commit -m "重新上傳乾淨版網站"
+
+# 6. 強制推送（因為 GitHub 上原本有歷史，要覆蓋掉）
+git push -f origin main
+
+git push -f origin master:main
+
+# Discord 機器人設置
+cd Discord; python bot.py
+
+# ====== Discord Developer Portal 完整設置指南 ======
+
+# 1. 登入 https://discord.com/developers/applications
+# 2. 選擇機器人應用 (ID: 1183259686632423464)
+
+# === General Information 設置 ===
+# Name: YL工作室機器人
+# Description: 
+# 🎮 YL工作室專屬機器人 - 讓您的伺服器更加有趣！
+# ✨ 由于倫精心開發，持續努力中...
+# 🎯 提供多種遊戲功能：簽到、占卜、猜數字、擲骰子、大老二、RPG冒險
+# 🎊 為您的Discord社群帶來無限樂趣！
+# 📱 追蹤我的IG：@lunlun.zip
+# 💌 聯絡：lunlun326218@gmail.com
+
+# Tags: 遊戲, 娛樂, 中文, 台灣, 互動, RPG, 簽到, 占卜
+
+# === OAuth2 → URL Generator 權限設置 ===
+# SCOPES (必勾):
+# ✅ bot
+# ✅ applications.commands
+
+# BOT PERMISSIONS (必勾的權限):
+# 【文字權限】
+# ✅ Send Messages                    (發送訊息)
+# ✅ Send Messages in Threads         (在討論串發送訊息)
+# ✅ Create Public Threads            (建立公開討論串)
+# ✅ Create Private Threads           (建立私人討論串)
+# ✅ Embed Links                      (嵌入連結)
+# ✅ Attach Files                     (附加檔案)
+# ✅ Read Message History             (讀取訊息歷史)
+# ✅ Mention Everyone                 (提及所有人)
+# ✅ Use External Emojis              (使用外部表情符號)
+# ✅ Use External Stickers            (使用外部貼圖)
+# ✅ Add Reactions                    (添加反應)
+# ✅ Use Slash Commands               (使用斜線指令)
+
+# 【語音權限】
+# ✅ Connect                          (連接語音頭道)
+# ✅ Speak                           (在語音頭道說話)
+
+# 【一般權限】
+# ✅ View Channels                    (查看頻道)
+# ✅ Manage Messages                  (管理訊息)
+# ✅ Manage Threads                   (管理討論串)
+# ✅ Send TTS Messages                (發送TTS訊息)
+
+# === Install Link 設置 ===
+# 4. General Information → Install Link → 選擇 "Discord Provided Link"
+
+# === 完成設置後效果 ===
+# 5. 用戶點擊機器人大頭貼會出現"邀請到伺服器"按鈕
+# 6. 機器人新增指令: !介紹 - 顯示完整機器人資訊
+# 7. 機器人狀態會隨機顯示不同訊息
+
+# === 邀請連結 (包含所有權限) ===
+# https://discord.com/oauth2/authorize?client_id=1183259686632423464&permissions=1067303028800&integration_type=0&scope=bot+applications.commands

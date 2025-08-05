@@ -1,0 +1,472 @@
+/* ========== 全局變數定義 ========== */
+:root {
+  --primary: #d8f9ff;
+  --accent: #c9e3fc;
+  --dark: #1a1a1a;
+  --light: #f8f8f8;
+  --highlight: #ece8e1;
+  --card-bg: rgba(15, 25, 35, 0.7);
+  --pink-accent: #e255a3;
+  --transition: all 0.3s ease;
+  --primary-glow: rgba(216, 249, 255, 0.5);
+  --discord-blurple: #5865F2;
+}
+
+/* ========== 基礎樣式重置 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  background: linear-gradient(to bottom, #0f1923, #1a1a1a);
+  color: var(--light);
+  line-height: 1.6;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* ========== 導航列樣式 ========== */
+#navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(rgb(6, 7, 7), rgba(34, 34, 34, 0.445));
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 15px rgb(154, 209, 209);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 110px;
+}
+
+.logo a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.logo-image {
+  height: 115px;
+  width: auto;
+  transition: var(--transition);
+}
+
+.logo:hover .logo-image {
+  transform: rotate(-5deg) scale(1.05);
+  filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  padding: 8px 0;
+  transition: var(--transition);
+  font-size: 1.2rem;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 120%;
+}
+
+/* ========== 主內容容器 ========== */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ========== Hero 區域 ========== */
+.hero-section {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #232946 0%, #181c24 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/mee1.jpg') center/cover no-repeat;
+  opacity: 0.04;
+  z-index: 1;
+}
+
+.hero-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+.hero-text-card {
+  background: rgba(24, 28, 36, 0.96);
+  border-radius: 28px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(88, 101, 242, 0.18);
+  transition: var(--transition);
+}
+
+.hero-text-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(88, 101, 242, 0.25);
+}
+
+.hero-text-card h1 {
+  color: var(--light);
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.hero-text-card p {
+  color: var(--highlight);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Discord 邀請按鈕 */
+.discord-invite, .bot-invite {
+  margin-top: 2rem;
+}
+
+.discord-btn, .bot-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 1.1rem;
+}
+
+.discord-btn {
+  background-color: var(--discord-blurple);
+  color: white;
+  box-shadow: 0 4px 20px rgba(88, 101, 242, 0.4);
+}
+
+.discord-btn:hover {
+  background-color: #4752c4;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+}
+
+.bot-btn {
+  background-color: var(--pink-accent);
+  color: white;
+  box-shadow: 0 4px 20px rgba(226, 85, 163, 0.4);
+}
+
+.bot-btn:hover {
+  background-color: #d14b93;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(226, 85, 163, 0.6);
+}
+
+/* ========== 內容區塊通用樣式 ========== */
+.modern-section {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(57, 62, 79, 0.5);
+  transition: var(--transition);
+}
+
+.modern-section:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.modern-section h2 {
+  color: var(--highlight);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+  font-weight: 700;
+}
+
+.modern-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  border-radius: 2px;
+}
+
+.bot-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bot-description p {
+  color: var(--highlight);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ========== 頁腳樣式 ========== */
+.site-footer {
+  background: linear-gradient(
+      to bottom, 
+      rgba(15, 25, 35, 0.9), 
+      rgba(6, 7, 7, 0.95)
+  );
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(216, 249, 255, 0.1);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo-img {
+  height: 60px;
+  filter: drop-shadow(0 0 5px var(--primary-glow));
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.link-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-column h4 {
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.link-column h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+.link-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.link-column li {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.5;
+}
+
+.link-column a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link-column a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(216, 249, 255, 0.1);
+  color: rgba(248, 248, 248, 0.5);
+  font-size: 0.9rem;
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1.5rem;
+    height: 90px;
+  }
+  
+  .logo-image {
+    height: 80px;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 1rem;
+  }
+  
+  .hero-text-card h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text-card p {
+    font-size: 1.1rem;
+  }
+  
+  .modern-section {
+    padding: 2rem 1.5rem;
+  }
+  
+  .modern-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-container {
+    height: 80px;
+  }
+  
+  .logo-image {
+    height: 70px;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .hero-text-card h1 {
+    font-size: 1.8rem;
+  }
+  
+  .modern-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .discord-btn, .bot-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 1.5rem;
+  }
+  
+  .modern-section {
+    padding: 1.5rem 1rem;
+  }
+  
+  .hero-text-card h1 {
+    font-size: 1.6rem;
+  }
+  
+  .hero-text-card p, .bot-description p {
+    font-size: 1rem;
+  }
+  
+  .modern-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}

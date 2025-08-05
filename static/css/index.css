@@ -1,0 +1,248 @@
+/* ========== 變數定義 (Variable Definitions) ========== */
+:root {
+    --primary: #34bee7;          /* 主色 (Primary color) */
+    --accent: #8997a0;          /* 強調色 (Accent color) */
+    --dark: #17191b;            /* 深色背景 (Dark background) */
+    --light: #e2e2e2;           /* 淺色文字 (Light text) */
+    --highlight: #b2e6f0;       /* 高亮色 (Highlight color) */
+}
+
+/* ========== 基礎樣式 (Base Styles) ========== */
+* {
+    margin: 0;                  /* 移除預設邊距 (Remove default margin) */
+    padding: 0;                 /* 移除預設內距 (Remove default padding) */
+    box-sizing: border-box;      /* 盒模型設定 (Box model setting) */
+}
+
+body {
+    /* 字體設定 (融合版) (Font settings - hybrid version) */
+    font-family: 'Segoe UI', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+    
+    /* 柔和渲染技術 (Smooth font rendering) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    
+    /* 原始版必要設定 (Essential original settings) */
+    background-color: var(--dark);  /* 深色背景 (Dark background) */
+    color: var(--light);           /* 淺色文字 (Light text) */
+    line-height: 1.5;              /* 行高 (Line height) */
+    overflow-x: hidden;            /* 隱藏水平捲軸 (Hide horizontal scroll) */
+    
+    /* 追加柔和效果 (Additional smooth effects) */
+    font-weight: 1000;             /* 粗體字 (Bold text) */
+    letter-spacing: 0.34em;        /* 字距調整 (Letter spacing adjustment) */
+}
+
+/* ========== 動畫定義 (Animation Definitions) ========== */
+@keyframes fadeInUp {
+    /* 淡入向上動畫 (Fade in and move up animation) */
+    from {
+        opacity: 0;               /* 完全透明 (Fully transparent) */
+        transform: translateY(30px);  /* 向下位移 (Move down) */
+    }
+    to {
+        opacity: 1;               /* 完全不透明 (Fully opaque) */
+        transform: translateY(0);     /* 回到原位 (Return to original position) */
+    }
+}
+
+@keyframes textGlow {
+    /* 文字發光動畫 (Text glow animation) */
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);  /* 白色微光 (White glow) */
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(153, 252, 243, 0.8); /* 青色強光 (Cyan strong glow) */
+    }
+    100% {
+        text-shadow: 0 0 5px rgba(52, 190, 231, 0.5);   /* 主色微光 (Primary color glow) */
+    }
+}
+
+/* ========== 主頁內容 (Hero Section) ========== */
+.hero {
+    min-height: 100vh;           /* 最小高度為視窗高度 (Minimum height = viewport height) */
+    display: flex;                /* 彈性佈局 (Flex layout) */
+    align-items: center;          /* 垂直居中 (Vertical center) */
+    justify-content: center;      /* 水平居中 (Horizontal center) */
+    text-align: center;           /* 文字居中 (Text center alignment) */
+    padding: 80px 20px;           /* 內距 (Padding) */
+    background: radial-gradient(circle at 70% 30%, rgba(16, 89, 161, 0.1) 0%, transparent 50%);  /* 背景漸變 (Background gradient) */
+    opacity: 0;                   /* 初始透明 (Initially transparent) */
+    animation: fadeInUp 1s ease-out forwards;  /* 淡入動畫 (Fade in animation) */
+    animation-delay: 0.3s;        /* 動畫延遲 (Animation delay) */
+}
+
+.hero-content {
+    max-width: 800px;            /* 最大寬度 (Maximum width) */
+    margin: 0 auto;              /* 水平居中 (Horizontal center) */
+    transform: perspective(1000px);  /* 3D透視效果 (3D perspective) */
+}
+
+.hero h1 {
+    font-size: 3.5rem;           /* 字體大小 (Font size) */
+    margin-bottom: 20px;         /* 底部外距 (Bottom margin) */
+    line-height: 1.2;            /* 行高 (Line height) */
+    opacity: 0;                  /* 初始透明 (Initially transparent) */
+    animation: fadeInUp 0.8s ease-out forwards, textGlow 3s ease-in-out infinite;  /* 組合動畫 (Combined animations) */
+    animation-delay: 0.5s;       /* 動畫延遲 (Animation delay) */
+    transform-style: preserve-3d;  /* 保持3D變換 (Preserve 3D transformations) */
+}
+
+/* 姓名高亮樣式 (Name highlight style) */
+.name-highlight {
+    color: var(--highlight);     /* 使用高亮色 (Use highlight color) */
+    position: relative;          /* 相對定位 (Relative positioning) */
+    display: inline-block;       /* 行內區塊 (Inline block) */
+}
+
+/* 姓名下方的裝飾線 (Decoration line under name) */
+.name-highlight::after {
+    content: '';                 /* 偽元素內容 (Pseudo-element content) */
+    position: absolute;          /* 絕對定位 (Absolute positioning) */
+    bottom: -5px;               /* 從底部定位 (Position from bottom) */
+    left: 0;                    /* 從左側開始 (Start from left) */
+    width: 0;                   /* 初始寬度為0 (Initial width = 0) */
+    height: 3px;                /* 高度 (Height) */
+    background: linear-gradient(90deg, var(--primary), var(--accent));  /* 漸變背景 (Gradient background) */
+    transition: width 0.8s ease-out;  /* 寬度過渡效果 (Width transition) */
+    animation: widthGrow 1s ease-out forwards;  /* 寬度增長動畫 (Width grow animation) */
+    animation-delay: 1s;        /* 動畫延遲 (Animation delay) */
+}
+
+/* 寬度增長動畫 (Width grow animation) */
+@keyframes widthGrow {
+    from {
+        width: 0;               /* 起始寬度 (Start width) */
+    }
+    to {
+        width: 100%;            /* 結束寬度 (End width) */
+    }
+}
+
+.subtitle {
+    font-size: 1.5rem;          /* 副標題字體大小 (Subtitle font size) */
+    color: var(--accent);       /* 使用強調色 (Use accent color) */
+    margin-bottom: 30px;        /* 底部外距 (Bottom margin) */
+    opacity: 0;                 /* 初始透明 (Initially transparent) */
+    animation: fadeInUp 0.8s ease-out forwards;  /* 淡入動畫 (Fade in animation) */
+    animation-delay: 0.7s;      /* 動畫延遲 (Animation delay) */
+}
+
+.welcome-text {
+    font-size: 1.2rem;          /* 歡迎文字大小 (Welcome text size) */
+    margin-bottom: 40px;        /* 底部外距 (Bottom margin) */
+    color: rgba(15, 238, 201, 0.8);  /* 半透明青色 (Semi-transparent cyan) */
+    opacity: 0;                 /* 初始透明 (Initially transparent) */
+    animation: fadeInUp 0.8s ease-out forwards;  /* 淡入動畫 (Fade in animation) */
+    animation-delay: 0.9s;      /* 動畫延遲 (Animation delay) */
+}
+
+/* 行動呼籲按鈕 (Call-to-action button) */
+.cta-button {
+    display: inline-block;      /* 行內區塊 (Inline block) */
+    padding: 15px 40px;         /* 內距 (Padding) */
+    background: linear-gradient(135deg, var(--primary), var(--accent));  /* 漸變背景 (Gradient background) */
+    background-size: 200% 200%; /* 背景尺寸 (Background size) */
+    color: rgb(255, 255, 255);  /* 文字顏色 (Text color) */
+    text-decoration: none;      /* 移除底線 (Remove underline) */
+    border-radius: 50px;        /* 圓角邊框 (Rounded corners) */
+    font-weight: bold;          /* 粗體字 (Bold text) */
+    font-size: 1.1rem;          /* 字體大小 (Font size) */
+    border: none;               /* 無邊框 (No border) */
+    cursor: pointer;            /* 滑鼠指標 (Cursor pointer) */
+    transition: all 0.3s ease;  /* 過渡效果 (Transition effect) */
+    box-shadow: 0 5px 15px rgba(133, 168, 202, 0.3);  /* 陰影效果 (Shadow effect) */
+    opacity: 0;                 /* 初始透明 (Initially transparent) */
+    animation: fadeInUp 0.8s ease-out forwards, gradientPulse 4s ease infinite;  /* 組合動畫 (Combined animations) */
+    animation-delay: 1.1s;      /* 動畫延遲 (Animation delay) */
+    position: relative;         /* 相對定位 (Relative positioning) */
+    overflow: hidden;           /* 隱藏溢出 (Hide overflow) */
+}
+
+/* 按鈕懸停效果 (Button hover effect) */
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);  /* 上移並放大 (Move up and scale) */
+    box-shadow: 0 8px 25px rgba(165, 200, 235, 0.6);  /* 增強陰影 (Enhanced shadow) */
+}
+
+/* 按鈕光澤效果 (Button shine effect) */
+.cta-button::after {
+    content: '';                /* 偽元素內容 (Pseudo-element content) */
+    position: absolute;         /* 絕對定位 (Absolute positioning) */
+    top: 0;                     /* 從頂部開始 (Start from top) */
+    left: 0;                    /* 從左側開始 (Start from left) */
+    width: 100%;               /* 全寬 (Full width) */
+    height: 100%;              /* 全高 (Full height) */
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);  /* 光澤漸變 (Shine gradient) */
+    transform: translateX(-100%);  /* 初始位置 (Initial position) */
+    transition: transform 0.6s ease;  /* 過渡效果 (Transition effect) */
+}
+
+/* 懸停時光澤移動 (Shine movement on hover) */
+.cta-button:hover::after {
+    transform: translateX(100%);  /* 移動到右側 (Move to right) */
+}
+
+/* 漂浮裝飾元素 (Floating decorative elements) */
+.decorative-element {
+    position: absolute;         /* 絕對定位 (Absolute positioning) */
+    background: rgba(252, 252, 252, 0.1);  /* 半透明背景 (Semi-transparent background) */
+    border-radius: 50%;         /* 圓形 (Circle shape) */
+    pointer-events: none;       /* 忽略滑鼠事件 (Ignore mouse events) */
+    z-index: -1;               /* 置於底層 (Send to back) */
+    animation: float 6s ease-in-out infinite;  /* 漂浮動畫 (Floating animation) */
+}
+
+/* 裝飾元素1 (Decorative element 1) */
+.decorative-element:nth-child(1) {
+    width: 100px;              /* 寬度 (Width) */
+    height: 100px;             /* 高度 (Height) */
+    top: 20%;                  /* 從頂部定位 (Position from top) */
+    left: 10%;                 /* 從左側定位 (Position from left) */
+    animation-delay: 0s;       /* 無延遲 (No delay) */
+}
+
+/* 裝飾元素2 (Decorative element 2) */
+.decorative-element:nth-child(2) {
+    width: 150px;              /* 寬度 (Width) */
+    height: 150px;             /* 高度 (Height) */
+    bottom: 15%;               /* 從底部定位 (Position from bottom) */
+    right: 10%;                /* 從右側定位 (Position from right) */
+    animation-delay: 1s;       /* 動畫延遲 (Animation delay) */
+}
+
+/* 裝飾元素3 (Decorative element 3) */
+.decorative-element:nth-child(3) {
+    width: 80px;               /* 寬度 (Width) */
+    height: 80px;              /* 高度 (Height) */
+    top: 60%;                  /* 從頂部定位 (Position from top) */
+    left: 20%;                 /* 從左側定位 (Position from left) */
+    animation-delay: 2s;       /* 動畫延遲 (Animation delay) */
+}
+
+/* ========== 響應式設計 (Responsive Design) ========== */
+/* 平板尺寸 (Tablet size) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;      /* 調整標題大小 (Adjust heading size) */
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;      /* 調整副標題大小 (Adjust subtitle size) */
+    }
+    
+    /* 其他平板樣式調整 (Other tablet style adjustments) */
+    /* ... */
+}
+
+/* 手機尺寸 (Mobile size) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;        /* 進一步調整標題大小 (Further adjust heading size) */
+    }
+    
+    /* 其他手機樣式調整 (Other mobile style adjustments) */
+    /* ... */
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>于倫的網站 | Dc</title>
+    <!-- 網站圖示 -->
+    <link rel="icon" href="https://drive.google.com/thumbnail?id=1CZ-eNzrncZIf0wDqdgTZErEpo8Dd1rKE&sz=w64" type="image/png">
+    <link rel="stylesheet" href="static/css/discord.css">
+    <link rel="stylesheet" href="static/css/rgb-effects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img 
+  src="https://drive.google.com/thumbnail?id=1CZ-eNzrncZIf0wDqdgTZErEpo8Dd1rKE&sz=w300" 
+  alt="YL工作室Logo" 
+  class="logo-image" 
+  style="width:100px; height:auto;"
+>
+
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="main.html">首頁</a></li>
+                <li><a href="about.html">關於我</a></li>
+                <li><a href="discord.html">Discord</a></li>
+                <li><a href="games.html">小遊戲</a></li>
+                <li><a href="comments.html">留言區</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="home-container">
+        <section class="hero-section">
+            <div class="hero-bg"></div>
+            <div class="hero-flex">
+                <div class="hero-text-card">
+                    <h1>歡迎來到我的Discord社群</h1>
+                    <p>加入我們的Discord群組，一起聊天、分享遊戲心得！</p>
+                    
+                    <div class="discord-invite">
+                        <a href="https://discord.gg/j8cfmpAm7X" class="discord-btn">
+                            <i class="fab fa-discord"></i> 加入Discord群組
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="modern-section">
+            <h2>我的Discord機器人</h2>
+            <div class="bot-description">
+                <p>我開發了一個專屬的Discord機器人，提供多種實用功能，歡迎邀請到您的伺服器！</p>
+                <div class="bot-invite">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1183259686632423464&permissions=1067303028800&integration_type=0&scope=bot+applications.commands" class="bot-btn">
+                        <i class="fas fa-robot"></i> 邀請機器人
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 優化載入順序的互動功能 -->
+    <script>
+        // 確保按順序載入，避免衝突
+        function loadScript(src, callback) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.onload = callback;
+            document.head.appendChild(script);
+        }
+        
+        // 載入全域持續播放音樂系統
+        loadScript('static/js/global-music.js', () => {
+            console.log('✅ 全域音樂系統載入完成');
+        });
+    </script>
+
+    <!-- 頁尾 -->
+    <footer class="site-footer" style="margin-top: 2rem; padding: 1.5rem 0; background: rgba(24,28,36,0.95); border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center; padding: 0 1rem;">
+            <div class="footer-nav" style="margin-bottom: 1rem;">
+                <a href="main.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">首頁</a>
+                <a href="about.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">關於我</a>
+                <a href="discord.html" style="color: #e056fd; text-decoration: none; margin: 0 1rem; font-weight: bold;">Discord</a>
+                <a href="games.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">小遊戲</a>
+                <a href="comments.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">留言區</a>
+            </div>
+            <div style="color: #888; font-size: 0.9rem;">
+                <p style="margin: 0;">© 2024 于倫的網站 | 用心製作的個人部落格 ❤️</p>
+                <p style="margin: 0.5rem 0 0 0;">
+                    <span class="sparkle-effect">遊戲同樂</span> • 
+                    <span>Discord 交流</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

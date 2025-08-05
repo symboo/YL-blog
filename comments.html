@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>于倫的網站 | 留言區</title>
+    <!-- 網站圖示 -->
+    <link rel="icon" href="https://drive.google.com/thumbnail?id=1CZ-eNzrncZIf0wDqdgTZErEpo8Dd1rKE&sz=w64" type="image/png">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/rgb-effects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 導航列 -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://drive.google.com/thumbnail?id=1CZ-eNzrncZIf0wDqdgTZErEpo8Dd1rKE&sz=w100" alt="網站Logo" class="logo-image" style="width:100px; height:auto;">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="main.html">首頁<span class="exclamation">.</span></a></li>
+                <li><a href="about.html">關於我<span class="exclamation">.</span></a></li>
+                <li><a href="discord.html">Discord<span class="exclamation">.</span></a></li>
+                <li><a href="games.html">小遊戲<span class="exclamation">.</span></a></li>
+                <li><a href="comments.html" class="active">留言區<span class="exclamation">.</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="home-container">
+        <!-- 頁面標題區 -->
+        <section class="hero-section modern-hero" style="min-height: 40vh;">
+            <div class="hero-bg" style="z-index:1;"></div>
+            <div class="hero-flex" style="position:relative;z-index:2; justify-content: center; align-items: center;">
+                <div class="hero-text hero-text-card neon-glow" style="backdrop-filter:blur(8px);background:rgba(24,28,36,0.96);box-shadow:0 8px 32px rgba(88,101,242,0.18); text-align: center;">
+                    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">💬 留言區</h1>
+                    <p style="font-size: 1.2rem; color: #888;">
+                        歡迎在這裡留下你的想法<br>
+                        分享你的故事，和于倫互動交流 ❤️
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 留言區域 -->
+        <section id="comments-container" class="comment-section modern-section" style="margin-top: 2rem; padding: 2rem 0;">
+            <!-- 留言內容會通過 JavaScript 動態載入 -->
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="site-footer" style="margin-top: 4rem; padding: 2rem 0; background: rgba(24,28,36,0.95); border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <div class="footer-nav" style="margin-bottom: 1.5rem;">
+                <a href="main.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">首頁</a>
+                <a href="about.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">關於我</a>
+                <a href="discord.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">Discord</a>
+                <a href="games.html" style="color: #7ed6df; text-decoration: none; margin: 0 1rem;">小遊戲</a>
+                <a href="comments.html" style="color: #e056fd; text-decoration: none; margin: 0 1rem; font-weight: bold;">留言區</a>
+            </div>
+            <div style="color: #888; font-size: 0.9rem;">
+                <p>© 2024 于倫的網站 | 用心製作的個人部落格 ❤️</p>
+                <p style="margin-top: 0.5rem;">
+                    <span class="sparkle-effect">分享你的想法</span> • 
+                    <span>留下美好回憶</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 載入留言功能 -->
+    <script>
+        // 簡化載入，只載入留言系統
+        function loadScript(src, callback) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.onload = callback || (() => {});
+            script.onerror = () => console.log('載入失敗:', src);
+            document.head.appendChild(script);
+        }
+        
+        // 載入全域音樂系統
+        loadScript('static/js/global-music.js', () => {
+            console.log('✅ 全域音樂系統載入完成');
+            
+            // 載入留言專用版本
+            loadScript('static/js/comments-page.js', () => {
+                console.log('✅ 留言系統載入完成');
+            });
+        });
+    </script>
+</body>
+</html>
