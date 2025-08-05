@@ -8,3 +8,15 @@ env/
 .env
 certs/
 uploads/
+
+# 避免重複或測試文件
+*-old.*
+*-backup.*
+*-test.*
+*.tmp
+*.temp
+
+# 編輯器和系統文件
+.vscode/
+.DS_Store
+Thumbs.db
